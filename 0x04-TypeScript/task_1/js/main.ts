@@ -7,6 +7,7 @@ interface Teacher {
     [key: string]: any; 
 }
 
+// Example of a Teacher object
 const teacher3: Teacher = {
     firstName: 'John',
     lastName: 'Doe',
@@ -15,20 +16,20 @@ const teacher3: Teacher = {
     contract: false,
 };
 
-console.log(teacher3);
-
-// Directors interface extends Teacher
+// Interface for Directors extending Teacher
 interface Directors extends Teacher {
     numberOfReports: number;
 }
 
-// Example object based on Directors interface
-const director1: Directors = {
-    firstName: 'John',
-    lastName: 'Doe',
-    location: 'London',
-    fullTimeEmployee: true,
-    numberOfReports: 17,
+// Function interface
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+
+// Function implementation
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+    return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-console.log(director1);
+// Example usage
+console.log(printTeacher("John", "Doe"));  // J. Doe
